@@ -21,108 +21,108 @@ import java.time.LocalDate;
  */
 @Entity
 public class Osoba {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-  @Length(max = 100)
-  @NotBlank
-  private String jmeno;
+    @Length(max = 100)
+    @NotBlank
+    private String jmeno;
 
-  @Length(max = 100)
-  @NotBlank
-  private String prijmeni;
+    @Length(max = 100)
+    @NotBlank
+    private String prijmeni;
 
-  @PastOrPresent
-  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
-  private LocalDate datumNarozeni;
+    @PastOrPresent
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate datumNarozeni;
 
-  @Length(max = 200)
-  @NotBlank
-  private String adresa;
+    @Length(max = 200)
+    @NotBlank
+    private String adresa;
 
-  @Length(max = 100)
-  @Email
-  private String email;
+    @Length(max = 100)
+    @Email
+    private String email;
 
-  @Length(min = 9, max = 13)
-  @Pattern(regexp = "\\+?\\d+")
-  private String telefon;
+    @Length(min = 9, max = 13)
+    @Pattern(regexp = "\\+?\\d+")
+    private String telefon;
 
-  public Osoba() {
-  }
-
-  public Osoba(Long id, String jmeno, String prijmeni, LocalDate datumNarozeni, String adresa, String email, String telefon) {
-    this.id = id;
-    this.jmeno = jmeno;
-    this.prijmeni = prijmeni;
-    this.datumNarozeni = datumNarozeni;
-    this.adresa = adresa;
-    this.email = email;
-    this.telefon = telefon;
-  }
-
-  public Long getId() {
-    return id;
-  }
-
-  public void setId(Long id) {
-    this.id = id;
-  }
-
-  public String getJmeno() {
-    return jmeno;
-  }
-
-  public void setJmeno(String jmeno) {
-    this.jmeno = jmeno;
-  }
-
-  public String getPrijmeni() {
-    return prijmeni;
-  }
-
-  public void setPrijmeni(String prijmeni) {
-    this.prijmeni = prijmeni;
-  }
-
-  public LocalDate getDatumNarozeni() {
-    return datumNarozeni;
-  }
-
-  public void setDatumNarozeni(LocalDate datumNarozeni) {
-    this.datumNarozeni = datumNarozeni;
-  }
-
-  public String getAdresa() {
-    return adresa;
-  }
-
-  public void setAdresa(String adresa) {
-    this.adresa = adresa;
-  }
-
-  public String getEmail() {
-    return email;
-  }
-
-  public void setEmail(String email) {
-    this.email = email;
-  }
-
-  public String getTelefon() {
-    return telefon;
-  }
-
-  public void setTelefon(String telefon) {
-    this.telefon = telefon;
-  }
-
-  public Integer getVek() {
-    if (datumNarozeni == null) {
-      return null;
+    public Osoba() {
     }
-    return datumNarozeni.until(LocalDate.now()).getYears();
-  }
+
+    public Osoba(Long id, String jmeno, String prijmeni, LocalDate datumNarozeni, String adresa, String email, String telefon) {
+        this.id = id;
+        this.jmeno = jmeno;
+        this.prijmeni = prijmeni;
+        this.datumNarozeni = datumNarozeni;
+        this.adresa = adresa;
+        this.email = email;
+        this.telefon = telefon;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getJmeno() {
+        return jmeno;
+    }
+
+    public void setJmeno(String jmeno) {
+        this.jmeno = jmeno;
+    }
+
+    public String getPrijmeni() {
+        return prijmeni;
+    }
+
+    public void setPrijmeni(String prijmeni) {
+        this.prijmeni = prijmeni;
+    }
+
+    public LocalDate getDatumNarozeni() {
+        return datumNarozeni;
+    }
+
+    public void setDatumNarozeni(LocalDate datumNarozeni) {
+        this.datumNarozeni = datumNarozeni;
+    }
+
+    public String getAdresa() {
+        return adresa;
+    }
+
+    public void setAdresa(String adresa) {
+        this.adresa = adresa;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefon() {
+        return telefon;
+    }
+
+    public void setTelefon(String telefon) {
+        this.telefon = telefon;
+    }
+
+    public Integer getVek() {
+        if (datumNarozeni == null) {
+            return null;
+        }
+        return datumNarozeni.until(LocalDate.now()).getYears();
+    }
 
 }
